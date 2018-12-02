@@ -16,7 +16,7 @@ UsrParameters::~UsrParameters(){}
 UsrParameters UsrParameter;
 
 
-std::ifstream fin_d;
+std::ifstream fin_d1,fin_d2,fin_d3;
 std::ofstream fout;
 
 void print_help(){
@@ -79,13 +79,12 @@ void Paramscan(int argc, char *argv[]){
 		exit(1);
 	}
 	if(UsrParameter.methylationfile != ""){
-		fin_d.open(UsrParameter.methylationfile.c_str());
-		if (!fin_d) {
+		fin_d1.open(UsrParameter.methylationfile.c_str());
+		if (!fin_d1) {
 			std::cerr << "fatal error: failed to open methylation file.\n";
 			exit(1);
 		}
 	}
-	std::ifstream fin_d2;
 	fin_d2.open(UsrParameter.normalMapfile.c_str());
 	if (!fin_d2) {
 		std::cerr << "fatal error: failed to open map file.\n";
@@ -96,15 +95,16 @@ void Paramscan(int argc, char *argv[]){
 		std::cerr << "failed to open file: " << UsrParameter.outputFilepath << std::endl;
 		exit(1);
 	}
-	/*if(UsrParameter.configFilepath != ""){
-		fin_d2.open(UsrParameter.configFilepath.c_str());
-		if (!fin_d2) {
+	if(UsrParameter.configFilepath != ""){
+		fin_d3.open(UsrParameter.configFilepath.c_str());
+		if (!fin_d3) {
 			std::cerr << "fatal error: failed to open config file.\n";
 			exit(1);
 		}
-	}*/
+	}
 	fout.close();
-	fin_d.close();
+	fin_d1.close();
 	fin_d2.close();
+	fin_d3.close();
 }
 
