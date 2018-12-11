@@ -29,6 +29,7 @@ Download the compressed source file MEpurity.tar.gz and do as follows:
     -t      The maximum iteration time of bmm algorithm. <int> (Default:10000)
     -c      The least percemtage of sites belonging to a cluster that would not be filted. <float> (Default:0.01)
     -n      The original number of clusters. <int> (Default:10)
+    -v	    Output progress in terms of mixing coefficient (expected) values if 1. <bool> (Default:False)
 ## Example
     ./MEpurity -f ../test/test.txt -m ../map.txt -o ./output.txt
 # Output
