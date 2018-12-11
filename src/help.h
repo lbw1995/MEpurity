@@ -22,6 +22,7 @@ struct UsrParameters
 	float RemoveCutoff;
 	int MapSitesNumber;
 	int MaxiterTime;
+	bool verbose;
 };
 
 void print_help();

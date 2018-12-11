@@ -247,7 +247,9 @@ float calculate_purity(std::vector<float>& my_data, UsrParameters &UsrParameter)
 		parameter parameters;
 		init_bmm_parameters(parameters, hyperparameters, my_data, UsrParameter.ClassNumber);
 		bmm_result = bmm_function(my_data, UsrParameter.ClassNumber, parameters, hyperparameters, UsrParameter.RemoveCutoff, UsrParameter.MaxiterTime);
-		cout << bmm_result.cluster_mean;
+		if(UsrParameter.verbose){
+			cout << bmm_result.cluster_mean;
+		}
 		purity = *max_element(bmm_result.cluster_mean.begin(),bmm_result.cluster_mean.end());
 	}
 	return purity;
