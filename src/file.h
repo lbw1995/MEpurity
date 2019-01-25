@@ -184,10 +184,21 @@ void cmp_methylation(const char* filename, std::map<std::string, std::vector<flo
 	buffer = new char[size];
 	pbuf->sgetn(buffer, size);
 	filestr.close();
+	std::string head_line = "";
 	char *p = buffer;
-	while (*p != '\n') { p++; }
-	p++;
 	char* q = p;
+	while (*p != '\n') { p++; }
+	while (q < p) {
+		head_line += *q;
+		q++;
+	}
+	p++;
+	q = p;
+	std::string temp_head_line = "Composite Element REF	Beta_value	Chromosome	Start	End	Gene_Symbol	Gene_Type	Transcript_ID	Position_to_TSS	CGI_Coordinate	Feature_Type";
+	if (head_line != temp_head_line) {
+		std::cerr << "fatal error: The input file format is wrong, please check whether the correct input file is entered.\n";
+		exit(1);
+	}
 	float beta;
 	while ((p - buffer) < size) {
 		q = p;
@@ -239,7 +250,7 @@ float calculate_purity(std::vector<float>& my_data, UsrParameters &UsrParameter)
 		purity = ansmeans._centers[0];
 	}
 	else{ 
-		if(data_size < 2*UsrParameter.ClassNumber){
+		if(data_size < 2 * UsrParameter.ClassNumber){
 			UsrParameter.ClassNumber = data_size/2;
 		}
 		hyperparameter hyperparameters;
@@ -248,7 +259,9 @@ float calculate_purity(std::vector<float>& my_data, UsrParameters &UsrParameter)
 		init_bmm_parameters(parameters, hyperparameters, my_data, UsrParameter.ClassNumber);
 		bmm_result = bmm_function(my_data, UsrParameter.ClassNumber, parameters, hyperparameters, UsrParameter.RemoveCutoff, UsrParameter.MaxiterTime);
 		if(UsrParameter.verbose){
-			cout << bmm_result.cluster_mean;
+			std::cout << "Bmm clusters number: " << bmm_result.cluster_num.size() << " ." << endl;
+			std::cout << "Bmm clusters centers: ";
+			cout << bmm_result.cluster_mean << endl;
 		}
 		purity = *max_element(bmm_result.cluster_mean.begin(),bmm_result.cluster_mean.end());
 	}

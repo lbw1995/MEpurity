@@ -549,8 +549,6 @@ bmm_results bmm_function(std::vector<float> sample, int class_number, parameter&
 	bmm_result.cluster_mean = cluster_mean;
 	bmm_result.cluster_result = cluster_result;
 	bmm_result.cluster_num = cluster_sites_num;
-	std::cout<<"Bmm clusters number: "<<cluster_number<<" ."<<endl;
-	std::cout<<"Bmm clusters centers: "<<endl;
 	return bmm_result;
 }
 

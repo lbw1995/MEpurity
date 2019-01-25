@@ -17,7 +17,6 @@ struct UsrParameters
 	std::string methylationfile;
 	std::string normalMapfile;
 	std::string outputFilepath;
-	std::string configFilepath;
 	int ClassNumber;
 	float RemoveCutoff;
 	int MapSitesNumber;

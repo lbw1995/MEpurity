@@ -19,8 +19,7 @@ Download the compressed source file MEpurity.tar.gz and do as follows:
     Version 0.1
     ./MEpurity [options]
 ## Required parameters:
-    -f:     The 450k methylation input data. Either this, a config file of input data.
-    -F:     The config file path of input data. Either this, a 450k methylation input data.
+    -f:     The Illumina Infinium Human Methylation 450K (450k) input data.
     -m:     The normal mapfile under path of this software.
     -o:     The output file path that you would like to contain the results.
 ## Optional parameters:
