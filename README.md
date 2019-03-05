@@ -19,18 +19,18 @@ Download the compressed source file MEpurity.tar.gz and do as follows:
     Version 0.1
     ./MEpurity [options]
 ## Required parameters:
-    -f:     The Illumina Infinium Human Methylation 450K (450k) input data.
-    -m:     The normal mapfile under path of this software.
+    -i:     The Illumina Infinium Human Methylation 450K (450k) input data.
+    -p:     The file under the path of the software (parameters.txt) that stores the parameters about the distribution of beta values at different CpG sites in normal samples.
     -o:     The output file path that you would like to contain the results.
 ## Optional parameters:
     -h      Show this help message and exit.
-    -s      The number of CpG sites that you want to use in the map file. <int> (Default:80000)
+    -s      The number of CpG sites that you want to use in the map file. <int> (Default:70000)
     -t      The maximum iteration time of bmm algorithm. <int> (Default:10000)
     -c      The least percemtage of sites belonging to a cluster that would not be filted. <float> (Default:0.01)
     -n      The original number of clusters. <int> (Default:10)
     -v      Output progress in terms of mixing coefficient (expected) values if 1. <bool> (Default:False)
 ## Example
-    ./MEpurity -f ../test/test.txt -m ../parameters.txt -o ./output.txt
+    ./MEpurity -i ../test/test.txt -p ../parameters.txt -o ./output.txt
 # Output
 The output file contains 2 columns:
 
