@@ -1,3 +1,16 @@
+// =============================================================================
+
+// Project : MEpurity 0.0.1
+
+// Author : Bowen Liu
+
+// Date : 18-12-03
+
+// Email : lbw19950810@stu.xjtu.edu.cn 
+
+// Description : 'Tumor purity detection using only tumor methylatuon 450k data'
+
+// =============================================================================
 #include "bmm.h"
 #include "help.h"
 #include "kmeans.h"
