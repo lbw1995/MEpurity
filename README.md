@@ -30,6 +30,7 @@ Download the compressed source file MEpurity.tar.gz and do as follows:
     -n      The original number of clusters. <int> (Default:10)
     -v      Output progress in terms of mixing coefficient (expected) values if 1. <bool> (Default:False)
 ## Example
+    tar -zxvf ../test/test.tar.gz -C ../test
     ./MEpurity -i ../test/test.txt -p ../parameters.txt -o ./output.txt
 # Output
 The output file contains 2 columns:
